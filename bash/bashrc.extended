@@ -1,0 +1,57 @@
+# Extra Configurations for bash
+
+source ~/.config/bash/bashrc.completions
+
+# Bash aliases
+
+alias ..='cd .. '
+#alias apt='dnf '
+alias sudo='sudo '
+alias vim='nvim '
+alias l.='ls -d .* --color=auto'
+alias ll='ls -lA --color=auto'
+alias ls='ls --color=auto'
+alias la='ls -lAhsFgGkoS --file-type --color=auto'
+alias speedtest='speedtest-cli --simple'
+
+# Git aliases
+
+alias gits='git status '
+alias gita='git add . '
+alias gitc='git commit -m '
+alias gitp='git push '
+alias gitl='git log --oneline --decorate --graph --all '
+
+# Docker Programs
+
+alias lazydocker='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
+alias dr='docker run '
+alias dsp='docker system prune -f'
+alias dspa='docker system prune -f -a --volumes'
+alias db='docker build '
+alias dp='docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Image}}"'
+alias drm='docker rm '
+alias dre='docker restart '
+
+mkcd() {
+    mkdir "$1"
+    cd "$1"
+}
+
+mkbak() {
+    cp "$1" "$1.backup"
+}
+
+export EDITOR=/usr/bin/nvim
+export DOCKER_BUILDKIT=1
+export GOPATH=~/.local/share/go
+#export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+#export PATH=/usr/local/cuda/bin:$PATH
+export PATH=~/.scripts:$PATH
+export NVCC_PREPEND_FLAGS='-ccbin /home/linuxbrew/.linuxbrew/bin/g++-11'
+export PATH=~/.local/share/npm-global/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\[\033[01;37m\]\u@\h \[\033[01;32m\]\w\[\033[01;33m\]\n\$(date "+%T")\$(parse_git_branch)\[\033[00m\] $ "

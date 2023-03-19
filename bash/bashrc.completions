@@ -1,0 +1,4 @@
+# File to add completion to custom scripts
+
+#~/.scripts/connections.sh
+complete -W "alternative entrypoint command-center" connections.sh
