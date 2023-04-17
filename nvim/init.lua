@@ -46,7 +46,19 @@ if vim.fn.empty('~/.local/share/nvim/site/pack/packer/start/nvim-lspconfig/lua/l
     },
   }
   lspconfig.bashls.setup {}
-  lspconfig.gopls.setup {}
+  lspconfig.gopls.setup {
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = require('lspconfig/util').root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+      gopls = {
+        analyses = {
+          unusedparams = true,
+        },
+        staticcheck = true,
+      },
+    },
+  }
   
 
   -- Global mappings.
