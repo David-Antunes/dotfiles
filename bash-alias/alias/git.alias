@@ -1,0 +1,16 @@
+#!/bin/bash
+
+git=1
+
+if [  $git -eq 1 ]; then
+	:
+	#+
+  alias gits='git status '
+  alias gita='git add . '
+  alias gitc='git commit -m '
+  alias gitp='git push '
+  alias gitl='git log --oneline --decorate --graph --all '
+	#-
+fi
+
+unset git

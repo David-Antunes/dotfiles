@@ -1,0 +1,11 @@
+#!/bin/bash
+
+default=1
+
+if [  $default -eq 1 ]; then
+	:
+	#+
+	#-
+fi
+
+unset default
