@@ -4,7 +4,7 @@ echo "Attempting to install bashrc!"
 
 ln -sf "$(pwd)" ~/.config/bash
 
-if ! grep -n -q "source ~/.config/bash/bashrc.extended"; then
+if ! grep -n -q "source ~/.config/bash/bashrc.extended" ~/.bashrc ; then
   echo "source ~/.config/bash/bashrc.extended" >> ~/.bashrc
 else
   echo "Bashrc already installed!"
