@@ -49,5 +49,5 @@ HOSTNAME=$(hostname)
 if [ "$HOSTNAME" = "brain" ]; then
   export PS1="\[\033[01;37m\]\u@\h \[\033[01;32m\]\w\[\033[01;33m\]\n\$(date "+%T")\$(parse_git_branch)\[\033[00m\] $ "
 else
-  export PS1="\e[1;32m\u@\h \W]\\$ "
+  export PS1="\e[1;32m\u@\h \W]\\\e[0m$ "
 fi
